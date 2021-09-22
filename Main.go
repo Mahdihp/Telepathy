@@ -2,25 +2,19 @@ package main
 
 import (
 	"fmt"
-	"net"
-	"os"
+	"strconv"
+	"time"
 )
 
 func main() {
-	if len(os.Args) != 2 {
-		fmt.Fprintf(os.Stderr, "Usage: %s hostname\n", os.Args[0])
-		os.Exit(1)
-	}
-	name := os.Args[1]
 
-	addrs, err := net.LookupHost(name)
-	if err != nil {
-		fmt.Println("Error: ", err.Error())
-		os.Exit(2)
-	}
+	TradeBox := new(TradeBox)
+	TradeBox.New()
+	getAll := TradeBox.GetAll()
+	fmt.Println(time.Now())
 
-	for _, s := range addrs {
-		fmt.Println(s)
+	for i := 0; i < len(getAll); i++ {
+		fmt.Println(getAll["BTC "+strconv.Itoa(i)])
 	}
-	os.Exit(0)
+	fmt.Println(time.Now())
 }
