@@ -9,7 +9,7 @@ import (
 func main() {
 
 	TradeBox := new(TradeBox)
-	TradeBox.New()
+	TradeBox.Strart()
 	getAll := TradeBox.GetAll()
 	fmt.Println(time.Now())
 

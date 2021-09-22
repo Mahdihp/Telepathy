@@ -8,7 +8,7 @@ type TradeBox struct {
 	SymbolBoxs map[string]SymbolBox
 }
 
-func (this *TradeBox) New() {
+func (this *TradeBox) Strart() {
 	mapp := make(map[string]SymbolBox)
 
 	for i := 0; i < 20; i++ {
@@ -20,7 +20,7 @@ func (this *TradeBox) New() {
 func (this *TradeBox) GetAll() map[string]SymbolBox {
 	return this.SymbolBoxs
 }
-func (this TradeBox) StopTrade() {
+func (this *TradeBox) StopTrade() {
 
 }
 

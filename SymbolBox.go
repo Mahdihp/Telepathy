@@ -1,6 +1,6 @@
 package main
 
 type SymbolBox struct {
-	SymbolName string
-	Price      float64
+	SymbolName string  `json:"symbolName"`
+	Price      float64 `json:"price"`
 }
