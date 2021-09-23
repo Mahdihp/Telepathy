@@ -2,6 +2,7 @@ package main
 
 import (
 	"strconv"
+	"time"
 )
 
 type TradeBox struct {
@@ -9,15 +10,15 @@ type TradeBox struct {
 }
 
 func (this *TradeBox) Strart() {
-	mapp := make(map[string]SymbolBox)
+	this.SymbolBoxs = make(map[string]SymbolBox)
 
 	for i := 0; i < 20; i++ {
-		var sym = SymbolBox{SymbolName: "BTC " + strconv.Itoa(i), Price: 100000.0}
-		mapp["BTC "+strconv.Itoa(i)] = sym
+		var symbol = SymbolBox{SymbolName: "BTC " + strconv.Itoa(i),
+			Price: 100000.0, CreateDateTime: time.Now().Unix(), LastUpdateDateTime: time.Now().Unix()}
+		this.SymbolBoxs["BTC "+strconv.Itoa(i)] = symbol
 	}
-	this.SymbolBoxs = mapp
 }
-func (this *TradeBox) GetAll() map[string]SymbolBox {
+func (this *TradeBox) GetAllSymbol() map[string]SymbolBox {
 	return this.SymbolBoxs
 }
 func (this *TradeBox) StopTrade() {
